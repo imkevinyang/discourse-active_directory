@@ -7,10 +7,10 @@ gem 'net-ldap', '0.3.1'
 
 class ADAuthenticator < ::Auth::Authenticator
 
-	DC = Discourse.SiteSetting[:active_directory].authad_domain_controller
-	BASE_DN = Discourse.SiteSetting[:active_directory].authad_base_dn
-	BIND_DN = Discourse.SiteSetting[:active_directory].authad_bind_dn
-	BIND_PASS = Discourse.SiteSetting[:active_directory].authad_bind_pass
+#	DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
+#	BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
+#	BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
+#	BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
 	
 	def name
 		'active_directory'
@@ -40,13 +40,13 @@ class ADAuthenticator < ::Auth::Authenticator
 	
 	def register_middleware(omniauth)
 		omniauth.provider :ldap,
-						  :host => DC,
+						  :host => PluginSettings[:active_directory].authad_domain_controller,
 						  :port => 389,
 						  :method => :plain,
-						  :base => BASE_DN,
+						  :base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
 						  :uid => 'sAMAccountName',
-						  :bind_dn => BIND_DN,
-						  :password => BIND_PASS
+						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
+						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
 	end
 end
 
