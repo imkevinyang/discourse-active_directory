@@ -7,10 +7,10 @@ gem 'net-ldap', '0.3.1'
 
 class ADAuthenticator < ::Auth::Authenticator
 
-#	DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
-#	BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
-#	BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
-#	BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
+	DC = Discourse.SiteSettings[:active_directory].authad_domain_controller
+	BASE_DN = Discourse.SiteSettings[:active_directory].authad_base_dn
+	BIND_DN = Discourse.SiteSettings[:active_directory].authad_bind_dn
+	BIND_PASS = Discourse.SiteSettings[:active_directory].authad_bind_pass
 	
 	def name
 		'active_directory'
