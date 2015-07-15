@@ -32,13 +32,13 @@ class ADAuthenticator < ::Auth::Authenticator
 	
 	def register_middleware(omniauth)
 		omniauth.provider :ldap,
-#						  :host => PluginSettings[:active_directory].authad_domain_controller,
-#						  :port => 389,
-#						  :method => :plain,
-#						  :base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
-#						  :uid => 'sAMAccountName',
-#						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
-#						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
+						  :host => PluginSettings[:active_directory].authad_domain_controller,
+						  :port => 389,
+						  :method => :plain,
+						  :base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
+#						  :uid => '',
+						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
+						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
 	end
 end
 
