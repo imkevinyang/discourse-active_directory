@@ -2,17 +2,8 @@
 # about: Authenticate on Discourse with your Active Directory.
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
-
-#gem 'omniauth-ldap','1.0.4',:git => 'https://github.com/kirolous/omniauth-ldap.git'
-gem 'net-ldap', '0.11'
-
 class ADAuthenticator < ::Auth::Authenticator
 
-#	DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
-#	BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
-#	BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
-#	BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
-	
 	def name
 		'active_directory'
 	end
@@ -39,16 +30,16 @@ class ADAuthenticator < ::Auth::Authenticator
 		data = auth[:extra_data]
 	end
 	
-	def register_middleware(omniauth)
-		omniauth.provider :ldap,
-						  :host => PluginSettings[:active_directory].authad_domain_controller,
-						  :port => 389,
-						  :method => :plain,
-						  :base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
-						  :uid => 'sAMAccountName',
-						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
-						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
-	end
+#	def register_middleware(omniauth)
+#		omniauth.provider :ldap,
+#						  :host => PluginSettings[:active_directory].authad_domain_controller,
+#						  :port => 389,
+#						  :method => :plain,
+#						  :base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
+#						  :uid => 'sAMAccountName',
+#						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
+#						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
+#	end
 end
 
 auth_provider :title => 'with Active Directory',
