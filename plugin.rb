@@ -49,7 +49,7 @@ class ADAuthenticator < ::Auth::Authenticator
 						  #:bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
 						  #:password => Discourse.PluginSettings[:active_directory].authad_bind_pass
 #	end
-#end
+end
 
 auth_provider :title => 'with Active Directory',
 	:message => 'Log in with Active Directory',
