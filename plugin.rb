@@ -2,6 +2,7 @@
 # about: Authenticate on Discourse with your Active Directory.
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
+gem 'net-ldap', '0.9'
 gem 'gitlab_omniauth-ldap', '1.2.1'
 class ADAuthenticator < ::Auth::Authenticator
 
