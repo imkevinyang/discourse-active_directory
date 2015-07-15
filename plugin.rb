@@ -3,7 +3,9 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-require '/usr/local/lib/ruby/gems/2.0.0/gems/kiro-omniauth-ldap-1.0.4'
+ENV["NRCONFIG"] = File.expand_path('/usr/local/lib/ruby/gems/2.0.0/gems', __FILE__)
+gem 'kiro-omniauth-ldap-1.0.4', '1.0.4'
+
 class ADAuthenticator < ::Auth::Authenticator
 
 	def name
