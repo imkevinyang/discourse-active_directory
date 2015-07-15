@@ -3,7 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-require 'kiro-omniauth-ldap-1.0.4'
+#require 'kiro-omniauth-ldap-1.0.4'
 class ADAuthenticator < ::Auth::Authenticator
 
 	def name
