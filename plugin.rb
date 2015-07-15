@@ -3,9 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-ENV["NRCONFIG"] = File.expand_path('/usr/local/lib/ruby/gems/2.0.0/gems', __FILE__)
-gem 'kiro-omniauth-ldap-1.0.4', '1.0.4'
-
+require 'kiro-omniauth-ldap'
 class ADAuthenticator < ::Auth::Authenticator
 
 	def name
@@ -34,15 +32,15 @@ class ADAuthenticator < ::Auth::Authenticator
 		data = auth[:extra_data]
 	end
 	
-#	def register_middleware(omniauth)
-#		omniauth.provider :ldap,
-#		  :host => 'DC',
-#						  :port => 389,
-#						  :method => :plain,
-#						  :base => 'BASE_DN',
-#						  :uid => 'sAMAccountName',
-#						  :bind_dn => 'BIND_DN',
-#						  :password => 'BIND_PASS'
+	def register_middleware(omniauth)
+		omniauth.provider :ldap,
+		  :host => 'DC',
+						  :port => 389,
+						  :method => :plain,
+						  :base => 'BASE_DN',
+						  :uid => 'sAMAccountName',
+						  :bind_dn => 'BIND_DN',
+						  :password => 'BIND_PASS'
 						#  :host => PluginSettings[:active_directory].authad_domain_controller,
 						 # :port => 389,
 						  #:method => :plain,
@@ -50,7 +48,7 @@ class ADAuthenticator < ::Auth::Authenticator
 #						  #:uid => '',
 						  #:bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
 						  #:password => Discourse.PluginSettings[:active_directory].authad_bind_pass
-#	end
+	end
 end
 
 auth_provider :title => 'with Active Directory',
