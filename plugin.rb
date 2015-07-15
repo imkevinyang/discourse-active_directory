@@ -25,12 +25,12 @@ class ADAuthenticator < ::Auth::Authenticator
 		
 		result
 	end
-#	
+	
 	def after_create_account(user, auth)
 		data = auth[:extra_data]
 	end
-#	
-#	def register_middleware(omniauth)
+	
+	def register_middleware(omniauth)
 #		omniauth.provider :ldap,
 #						  :host => PluginSettings[:active_directory].authad_domain_controller,
 #						  :port => 389,
@@ -39,7 +39,7 @@ class ADAuthenticator < ::Auth::Authenticator
 #						  :uid => 'sAMAccountName',
 #						  :bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
 #						  :password => Discourse.PluginSettings[:active_directory].authad_bind_pass
-#	end
+	end
 end
 
 auth_provider :title => 'with Active Directory',
