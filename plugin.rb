@@ -31,7 +31,7 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-#		omniauth.provider :ldap,
+		omniauth.provider :ldap,
 #						  :host => PluginSettings[:active_directory].authad_domain_controller,
 #						  :port => 389,
 #						  :method => :plain,
