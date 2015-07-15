@@ -3,7 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'omniauth-ldap', :git => 'https://github.com/kirolous/discourse-active_directory.git'
+gem 'omniauth-ldap','1.0.4', :git => 'https://github.com/kirolous/discourse-active_directory.git'
 gem 'net-ldap', '0.3.1'
 
 class ADAuthenticator < ::Auth::Authenticator
