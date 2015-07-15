@@ -42,20 +42,20 @@ class ADAuthenticator < ::Auth::Authenticator
 #	end
 end
 
-#auth_provider :title => 'with Active Directory',
-#	:message => 'Log in with Active Directory',
-#	:frame_width => 920,
-#	:frame_height => 800,
-#	:authenticator => ADAuthenticator.new
-#	
-#register_css <<CSS
+auth_provider :title => 'with Active Directory',
+	:message => 'Log in with Active Directory',
+	:frame_width => 920,
+	:frame_height => 800,
+	:authenticator => ADAuthenticator.new
+	
+register_css <<CSS
 
-#.btn-social.windows {
-#	background: #0052A4;
-#}
+.btn-social.windows {
+	background: #0052A4;
+}
 
-#.btn-social.windows:before {
-#	content: "N";
-#}
+.btn-social.windows:before {
+	content: "N";
+}
 
-#CSS
+CSS
