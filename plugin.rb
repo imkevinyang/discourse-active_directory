@@ -36,7 +36,8 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-  omniauth.provider :LDAP,
+require 'omniauth/enterprise'
+use OmniAuth::Strategies::LDAP, 
     :host => '10.101.10.1',
     :port => 389,
     :method => :plain,
