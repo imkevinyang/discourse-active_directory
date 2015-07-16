@@ -4,7 +4,7 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 gem 'omniauth', '1.2.2'
-require 'omniauth/enterprise'
+#require 'omniauth/enterprise'
 
 
 class ADAuthenticator < ::Auth::Authenticator
