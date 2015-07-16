@@ -36,25 +36,26 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-		 omniauth.provider :LDAP,, 
-			 :title => "My LDAP", 
-			 :host => '10.101.10.1',
-    			 :port => 389,
-			 :method => :plain,
-			 :base => 'dc=intridea, dc=com',
-                         :uid => 'sAMAccountName',
-    			 :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')}
-			 :bind_dn => 'default_bind_dn'
-			 :password => 'password'
-						#  :host => PluginSettings[:active_directory].authad_domain_controller,
-						 # :port => 389,
-						  #:method => :plain,
-						  #:base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
-#						  #:uid => '',
-						  #:bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
-						  #:password => Discourse.PluginSettings[:active_directory].authad_bind_pass
-	end
+  omniauth.provider :LDAP,
+    :title => "My LDAP", 
+    :host => '10.101.10.1',
+    :port => 389,
+    :method => :plain,
+    :base => 'dc=intridea, dc=com',
+    :uid => 'sAMAccountName',
+    :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')}
+    :bind_dn => 'default_bind_dn'
+    :password => 'password'
+  end
 end
+#  :host => PluginSettings[:active_directory].authad_domain_controller,
+# :port => 389,
+#:method => :plain,
+#:base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
+#:uid => '',
+#:bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
+#:password => Discourse.PluginSettings[:active_directory].authad_bind_pass
+
 
 auth_provider :title => 'with Active Directory',
 	:message => 'Log in with Active Directory',
