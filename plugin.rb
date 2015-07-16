@@ -36,16 +36,16 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-	use OmniAuth::Strategies::LDAP, 
-    :title => "My LDAP", 
-    :host => '10.101.10.1',
-    :port => 389,
-    :method => :plain,
-    :base => 'dc=intridea, dc=com',
-    :uid => 'sAMAccountName',
-    :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')}
-    :bind_dn => 'default_bind_dn'
-    :password => 'password'
+		 omniauth.provider :LDAP,, 
+			 :title => "My LDAP", 
+			 :host => '10.101.10.1',
+    			 :port => 389,
+			 :method => :plain,
+			 :base => 'dc=intridea, dc=com',
+                         :uid => 'sAMAccountName',
+    			 :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')}
+			 :bind_dn => 'default_bind_dn'
+			 :password => 'password'
 						#  :host => PluginSettings[:active_directory].authad_domain_controller,
 						 # :port => 389,
 						  #:method => :plain,
