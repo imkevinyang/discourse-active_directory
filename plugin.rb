@@ -3,7 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'omniauth', '1.2.2'
+gem 'oa-enterprise', '0.3.2'
 #require 'omniauth/enterprise'
 
 
@@ -36,7 +36,6 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-require 'omniauth/enterprise'
 use OmniAuth::Strategies::LDAP, 
     :host => '10.101.10.1',
     :port => 389,
