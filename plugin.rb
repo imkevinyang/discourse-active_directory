@@ -3,8 +3,9 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'omniauth', '~> 0.3.2'
-#require 'omniauth/enterprise'
+
+require 'omniauth'
+gem 'kiro-omniauth-ldap', '1.0.6'
 
 
 class ADAuthenticator < ::Auth::Authenticator
