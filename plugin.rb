@@ -43,7 +43,6 @@ class ADAuthenticator < ::Auth::Authenticator
     :method => :plain,
     :base => 'dc=intridea, dc=com',
     :uid => 'sAMAccountName',
-    :name_proc => Proc.new {|name| name.gsub(/@.*$/,'')}
     :bind_dn => 'default_bind_dn'
     :password => 'password'
   end
