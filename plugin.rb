@@ -2,9 +2,13 @@
 # about: Authenticate on Discourse with your Active Directory.
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
+
+gem 'rack', '1.6.4'
+gem 'hashie', '3.4.2'
 gem 'rubyntlm', '0.5.1'
 gem 'kiro-ruby-sasl', '0.0.4.0'
 gem 'net-ldap', '0.11'
+gem 'omniauth', '1.2.2'
 gem 'kiro-omniauth-ldap', '1.0.6'
 
 class ADAuthenticator < ::Auth::Authenticator
