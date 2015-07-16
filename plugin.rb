@@ -9,8 +9,8 @@ gem 'rubyntlm', '0.5.1'
 #gem 'kiro-ruby-sasl', '0.0.4.0'
 gem 'net-ldap', '0.11'
 gem 'omniauth', '1.2.2'
-gem 'kiro-ruby-sasl', '0.0.4.1'
-gem 'kiro-omniauth-ldap', '1.0.6'
+#gem 'kiro-ruby-sasl', '0.0.4.1'
+gem 'kiro-omniauth-ldap', '1.0.7'
 
 
 class ADAuthenticator < ::Auth::Authenticator
