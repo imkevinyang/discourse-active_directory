@@ -4,7 +4,7 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 gem 'omniauth', '1.2.2'
-
+require 'omniauth/enterprise'
 
 
 class ADAuthenticator < ::Auth::Authenticator
@@ -36,8 +36,8 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-		omniauth.provider :ldap,
-		  :host => 'DC',
+		OmniAuth::Strategies::LDAP,
+		                                  :host => 'DC',
 						  :port => 389,
 						  :method => :plain,
 						  :base => 'BASE_DN',
