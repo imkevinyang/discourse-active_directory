@@ -3,9 +3,9 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'pyu-ruby-sasl', '0.0.3.2'
+gem 'kiro-ruby-sasl', '0.0.4.0'
 gem 'net-ldap', '0.11'
-gem 'kiro-omniauth-ldap', '1.0.5'
+gem 'kiro-omniauth-ldap', '1.0.6'
 
 class ADAuthenticator < ::Auth::Authenticator
 
