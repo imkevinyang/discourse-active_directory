@@ -3,7 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'omniauth', '3.4.2'
+gem 'omniauth', '0.3.2'
 #require 'omniauth/enterprise'
 
 
