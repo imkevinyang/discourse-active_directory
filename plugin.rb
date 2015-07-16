@@ -3,7 +3,7 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-require 'oa-enterprise'
+require 'omniauth'
 #require 'omniauth/enterprise'
 
 
