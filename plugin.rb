@@ -42,7 +42,7 @@ class ADAuthenticator < ::Auth::Authenticator
     :method => :plain,
     :base => 'dc=intridea, dc=com',
     :uid => 'sAMAccountName',
-    :bind_dn => 'default_bind_dn'
+    :bind_dn => 'default_bind_dn',
     :password => 'password'
   end
 end
