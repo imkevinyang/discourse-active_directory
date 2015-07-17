@@ -6,7 +6,7 @@
 
 require 'omniauth'
 gem 'net-ldap', '0.11'
-gem 'kiro-ruby-sasl', '0.0.4.0'
+gem 'ruby-sasl'
 gem 'kiro-omniauth-ldap', '1.0.6'
 
 
