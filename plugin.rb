@@ -6,8 +6,8 @@
 
 require 'omniauth'
 gem 'net-ldap', '0.11'
-gem 'ruby-sasl'
-gem 'kiro-omniauth-ldap'
+#gem 'ruby-sasl',
+gem 'kiro-omniauth-ldap', '1.0.7'
 
 
 class ADAuthenticator < ::Auth::Authenticator
