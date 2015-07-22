@@ -4,9 +4,8 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 
-require 'omniauth'
-gem 'net-ldap', '0.11'
-gem 'kiro-omniauth-ldap', '1.0.8'
+
+gem 'omniauth-ldap', '1.0.4
 
 
 class ADAuthenticator < ::Auth::Authenticator
