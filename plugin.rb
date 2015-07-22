@@ -3,13 +3,18 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-
-
+gem 'net-ldap', '0.3.1'
+gem 'pyu-ruby-sasl', '~>0.0.3.2'
+gem 'rubyntlm', '~>0.1.1'
 gem 'omniauth-ldap', '1.0.4'
-
 
 class ADAuthenticator < ::Auth::Authenticator
 
+	DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
+	BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
+	BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
+	BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
+	
 	def name
 		'active_directory'
 	end
@@ -18,7 +23,7 @@ class ADAuthenticator < ::Auth::Authenticator
 		result = Auth::Result.new
 		
 		authad_uid = auth_token[:uid]
-        	data = auth_token[:info]
+		data = auth_token[:info]
 		result.email = email = data[:email]
 		result.name = name = data[:name]
 
@@ -37,24 +42,16 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-use OmniAuth::Strategies::LDAP, 
-    :host => '10.101.10.1',
-    :port => 389,
-    :method => :plain,
-    :base => 'dc=intridea, dc=com',
-    :uid => 'sAMAccountName',
-    :bind_dn => 'default_bind_dn',
-    :password => 'password'
-  end
+		omniauth.provider :ldap,
+						  :host => DC,
+						  :port => 389,
+						  :method => :plain,
+						  :base => BASE_DN,
+						  :uid => 'sAMAccountName',
+						  :bind_dn => BIND_DN,
+						  :password => BIND_PASS
+	end
 end
-#  :host => PluginSettings[:active_directory].authad_domain_controller,
-# :port => 389,
-#:method => :plain,
-#:base =>  Discourse.PluginSettings[:active_directory].authad_base_dn,
-#:uid => '',
-#:bind_dn => Discourse.PluginSettings[:active_directory].authad_bind_dn,
-#:password => Discourse.PluginSettings[:active_directory].authad_bind_pass
-
 
 auth_provider :title => 'with Active Directory',
 	:message => 'Log in with Active Directory',
