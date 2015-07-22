@@ -5,7 +5,7 @@
 
 
 
-gem 'omniauth-ldap', '1.0.4
+gem 'omniauth-ldap', '1.0.4'
 
 
 class ADAuthenticator < ::Auth::Authenticator
