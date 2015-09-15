@@ -4,12 +4,13 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 
+
 class ADAuthenticator < ::Auth::Authenticator
 
-	DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
-	BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
-	BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
-	BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
+	# DC = Discourse.PluginSettings[:active_directory].authad_domain_controller
+	# BASE_DN = Discourse.PluginSettings[:active_directory].authad_base_dn
+	# BIND_DN = Discourse.PluginSettings[:active_directory].authad_bind_dn
+	# BIND_PASS = Discourse.PluginSettings[:active_directory].authad_bind_pass
 	
 	def name
 		'active_directory'
@@ -39,13 +40,13 @@ class ADAuthenticator < ::Auth::Authenticator
 	
 	def register_middleware(omniauth)
 		omniauth.provider :ldap,
-						  :host => DC,
+						  :host => "DC",
 						  :port => 389,
 						  :method => :plain,
-						  :base => BASE_DN,
+						  :base => "BASE_DN",
 						  :uid => 'sAMAccountName',
-						  :bind_dn => BIND_DN,
-						  :password => BIND_PASS
+						  :bind_dn => "BIND_DN",
+						  :password => "BIND_PASS"
 	end
 end
 
