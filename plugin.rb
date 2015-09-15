@@ -3,10 +3,6 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-gem 'net-ldap', '0.3.1'
-gem 'pyu-ruby-sasl', '0.0.3.3'
-gem 'rubyntlm', '~>0.1.1'
-gem 'omniauth-ldap', '1.0.4'
 
 class ADAuthenticator < ::Auth::Authenticator
 
