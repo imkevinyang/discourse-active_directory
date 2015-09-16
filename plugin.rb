@@ -4,9 +4,9 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 gem 'net-ldap', '0.9.0'
-gem 'pyu-ruby-sasl', '0.0.3.3'
-gem 'rubyntlm', '0.3.4'
-gem 'gitlab_omniauth-ldap', '1.2.1'
+# gem 'pyu-ruby-sasl', '0.0.3.3'
+# gem 'rubyntlm', '0.3.4'
+gem 'kiro-omniauth-ldap', '1.0.8'
 
 class ADAuthenticator < ::Auth::Authenticator
 
