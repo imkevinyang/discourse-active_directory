@@ -6,7 +6,7 @@
 # gem 'net-ldap', '0.3.1'
 # gem 'pyu-ruby-sasl', '0.0.3.3'
 # gem 'rubyntlm', '~>0.1.1'
-gem 'gitlab_omniauth-ldap'
+gem 'gitlab_omniauth-ldap', '1.2.1'
 
 class ADAuthenticator < ::Auth::Authenticator
 
