@@ -4,7 +4,6 @@
 # author: Chris Wells <cwells@thegdl.org>
 
 gem 'net-ldap', '0.9.0'
-gem 'omniauth', '1.0.3'
 gem 'pyu-ruby-sasl', '0.0.3.3'
 gem 'rubyntlm', '0.3.4'
 gem 'gitlab_omniauth-ldap', '1.2.1'
