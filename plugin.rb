@@ -3,7 +3,10 @@
 # version: 0.1.0
 # author: Chris Wells <cwells@thegdl.org>
 
-
+gem 'net-ldap', '0.3.1'
+# gem 'pyu-ruby-sasl', '0.0.3.3'
+# gem 'rubyntlm', '~>0.1.1'
+gem 'omniauth-ldap', '1.0.4'
 
 class ADAuthenticator < ::Auth::Authenticator
 
@@ -40,13 +43,13 @@ class ADAuthenticator < ::Auth::Authenticator
 	
 	def register_middleware(omniauth)
 		omniauth.provider :ldap,
-						  :host => "DC",
+						  :host => 'DC',
 						  :port => 389,
 						  :method => :plain,
-						  :base => "BASE_DN",
+						  :base => 'BASE_DN',
 						  :uid => 'sAMAccountName',
-						  :bind_dn => "BIND_DN",
-						  :password => "BIND_PASS"
+						  :bind_dn => 'BIND_DN',
+						  :password => 'BIND_PASS'
 	end
 end
 
