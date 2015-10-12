@@ -1,12 +1,16 @@
 # name: Active Directory
 # about: Authenticate on Discourse with your Active Directory.
-# version: 0.1.0
-# author: Chris Wells <cwells@thegdl.org>
+# version: 1.0
+# author: Kevin Yang <akeybupt2004@gmail.com>
 
 gem 'net-ldap', '0.11'
-# gem 'pyu-ruby-sasl', '0.0.3.3'
-# gem 'rubyntlm', '0.3.4'
-gem 'kiro-omniauth-ldap', '1.0.8', require: false
+require 'omniauth/strategies/oauth2'
+
+class OmniAuth::Strategies::ActiveDirectory < OmniAuth::Strategies::OAuth2
+  option :name, "active_directory"
+end
+
+OmniAuth.config.add_camelization('active_directory', 'ActiveDirectory')
 
 class ADAuthenticator < ::Auth::Authenticator
 
@@ -42,7 +46,7 @@ class ADAuthenticator < ::Auth::Authenticator
 	end
 	
 	def register_middleware(omniauth)
-		omniauth.provider :ldap,
+		omniauth.provider :active_directory,
 						  :host => 'DC',
 						  :port => 389,
 						  :method => :plain,
